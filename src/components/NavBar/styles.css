@@ -1,0 +1,74 @@
+nav.navbar {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-block: 0.5rem;
+}
+
+.navbar .container {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-block: 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: auto;
+    max-height: 40px;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #134B70;
+}
+
+.auth-buttons .btn {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.auth-buttons .register {
+    background-color: #f0f0f0;
+}
+
+.auth-buttons .register:hover {
+    background-color: #ddd;
+}
+
+.auth-buttons .login {
+    background-color: #2749A4;
+    color: white;
+}
+
+.auth-buttons .login:hover {
+    background-color: #0B1B3A;
+}

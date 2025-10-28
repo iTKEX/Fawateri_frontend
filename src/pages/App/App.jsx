@@ -1,7 +1,19 @@
-import React from 'react'
+import Home from "../Home/Home"
+import NavBar from "../../components/NavBar/NavBar"
+import Footer from "../../components/Footer/Footer"
+import Login from "../Login/Login";
+import { Routes, Route, useNavigate } from 'react-router';
 
 export default function App() {
-  return (
-    <div>Welcome To Fawateri Project</div>
+  return (<>
+
+    <NavBar />
+    <Routes>
+      <Route path="/*" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
+    <Footer />
+
+  </>
   )
 }
