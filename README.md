@@ -66,32 +66,32 @@
         </tr>
         <tr>
             <td>Signin</td>
-            <td>/Signin</td>
+            <td>/signin</td>
             <td>Sign in Page</td>
         </tr>
         <tr>
             <td>Signup</td>
-            <td>/Signup</td>
+            <td>/signup</td>
             <td>Signup Page</td>
         </tr>
         <tr>
             <td>Bills</td>
-            <td>/Bills</td>
+            <td>/bills</td>
             <td>Main User page list all bills</td>
         </tr>
         <tr>
             <td>Bill Deatils</td>
-            <td>/Bills/{bill_id}</td>
+            <td>/bills/{bill_id}</td>
             <td>Show bill details</td>
         </tr>
         <tr>
             <td>Profile (optinal)</td>
-            <td>/Profile</td>
+            <td>/profile</td>
             <td>User information Main page</td>
         </tr>
         <tr>
             <td>Dashboard (optinal)</td>
-            <td>/Dashboard</td>
+            <td>/dashboard</td>
             <td>Show user bills and informations</td>
         </tr>
     </tbody>
