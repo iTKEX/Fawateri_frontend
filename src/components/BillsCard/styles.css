@@ -1,0 +1,52 @@
+/* BillsCard.css */
+.bills-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    margin-top: 16px;
+}
+
+.bill-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 14px 16px;
+    background: #fff;
+    transition: box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.bill-card:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.bill-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.bill-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.bill-company {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.bill-description {
+    font-size: 0.9rem;
+    color: #444;
+    margin: 8px 0;
+}
+
+.bill-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.85rem;
+    color: #555;
+}

@@ -7,11 +7,10 @@
 .footer .flex {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* center all items vertically */
+    align-items: center; 
     flex-wrap: wrap;
 }
 
-/* Footer links */
 .footer a {
     text-decoration: none;
     color: #333;
@@ -24,33 +23,30 @@
     color: #01DC82;
 }
 
-/* Footer logo */
 .footer-logo {
     display: flex;
     justify-content: center;
-    align-items: center; /* centers the image vertically */
-    flex: 1; /* lets it take equal space in flex layout */
+    align-items: center;
+    flex: 1;
 }
 
 .footer-logo img {
     width: 120px;
     transition: transform 0.3s;
     cursor: pointer;
-    display: block; /* fixes inline baseline offset */
+    display: block;
 }
 
 .footer-logo img:hover {
     transform: scale(1.1);
 }
 
-/* Copyright */
 .copyright {
     margin-top: 2rem;
     color: #666;
     font-size: 0.9rem;
 }
 
-/* Mobile */
 @media (max-width: 380px) {
     .footer .flex {
         display: block;
