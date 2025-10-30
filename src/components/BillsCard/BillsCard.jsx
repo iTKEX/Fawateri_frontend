@@ -1,6 +1,7 @@
-import "./styles.css"
+import "./styles.css";
+import { Link } from "react-router";
 
-export default function BillsCard({ allBills }) {
+export default function BillsCard({ allBills, onEditClick, onDeleteClick }) {
     return (
         <div className="bills-grid">
             {allBills.map((bill) => (
@@ -13,10 +14,15 @@ export default function BillsCard({ allBills }) {
                     <div className="bill-details">
                         <p className="bill-description">{bill.description}</p>
                         <div className="bill-meta">
-                            <span><strong>Date:</strong> {bill.created_at}</span>
+                            <span><strong>Date:</strong> {bill.created_at ?? bill.date}</span>
                             <span><strong>Warranty:</strong> {bill.warranty}</span>
                             <span><strong>Cost:</strong> ${bill.cost}</span>
                         </div>
+                    </div>
+
+                    <div className="actions">
+                        <button onClick={() => onEditClick(bill)}>Edit</button>
+                        <button onClick={() => onDeleteClick(bill)}>Delete</button>
                     </div>
                 </div>
             ))}

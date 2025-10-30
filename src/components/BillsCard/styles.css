@@ -1,8 +1,7 @@
-/* BillsCard.css */
 .bills-grid {
     display: grid;
     gap: 16px;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     margin-top: 16px;
 }
 

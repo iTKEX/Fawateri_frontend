@@ -1,11 +1,10 @@
 import "./styles.css"
-import React from 'react'
 
-export default function Popup({ children, newBillAction, setNewBillAction }) {
+export default function Popup({ children, modalAction, setModalAction }) {
     return (
         <div className="popup-overlay">
             <div className="popup-content">
-                <button onClick={() => setNewBillAction(!newBillAction)}>X</button>
+                <button onClick={() => setModalAction(!modalAction)}>X</button>
                 {children}
             </div>
         </div>

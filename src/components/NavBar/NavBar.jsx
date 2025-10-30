@@ -1,7 +1,7 @@
 import "./styles.css"
 import fawateri from "../../assets/images/FAWATERI.svg";
 import { Link } from "react-router";
-
+import { HashLink } from "react-router-hash-link";
 
 export default function NavBar() {
     return (
@@ -12,14 +12,23 @@ export default function NavBar() {
                         <img src={fawateri} alt="Logo" />
                     </div>
                     <ul className="nav-links">
-                        <li><a href="#Home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li>
+                            <HashLink smooth to="/#home">Home</HashLink>
+                        </li>
+                        <li>
+                            <HashLink smooth to="/#about">About</HashLink>
+                        </li>
+                        <li>
+                            <HashLink smooth to="/#contact">Contact</HashLink>
+                        </li>
+                        <Link to={"/bills"}>
+                            <li>Bills</li>
+                        </Link>
                     </ul>
                     <div className="auth-buttons">
                         <button className="btn register">Signup</button>
                         <Link to={"/login"}>
-                        <button className="btn login">Login</button>
+                            <button className="btn login">Login</button>
                         </Link>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 import "./styles.css"
-import person from "../../assets/images/person.png"
+import person from "../../assets/images/Person.svg"
 
 export default function Home() {
     return (<>
