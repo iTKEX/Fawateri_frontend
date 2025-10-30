@@ -34,3 +34,11 @@ export async function updateBill(billId, formData) {
 export async function deleteBill(billId) {
     return sendRequest(`${baseURL}${billId}/`, "DELETE")
 }
+
+export async function upsertBillImage(billId, formData) {
+    return sendRequest(`${baseURL}${billId}/image/`, "POST", formData);
+}
+
+export async function deleteBillImage(billId) {
+    return sendRequest(`${baseURL}${billId}/image/`, "DELETE");
+}
