@@ -15,7 +15,7 @@ export default function App() {
       <Route path="/bills" element={<Bills />} />
     </Routes>
     <Footer />
-
+{/* test git */}
   </>
   )
 }
