@@ -1,8 +1,17 @@
+/* ==========================================================================
+   Global Base Styles
+   1) Reset & Defaults
+   2) Typography
+   3) Links & Focus
+   4) Utilities
+   ========================================================================== */
+
+/* 1) Reset & Defaults */
 @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
 
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: 'Cairo', sans-serif;
 }
@@ -12,5 +21,50 @@ body {
   width: 100%;
   height: 100%;
   background-color: #f5f5f5;
+  color: #0B1B3A;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* 2) Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #0B1B3A;
+  font-weight: 700;
+}
+
+p {
+  color: #333333;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* 3) Links & Focus */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(16, 85, 201, 0.35);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* 4) Utilities */
+.text-center {
+  text-align: center;
+}
+
+ul,
+ol {
+  list-style: none;
 }

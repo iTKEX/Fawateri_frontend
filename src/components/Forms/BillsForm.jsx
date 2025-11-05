@@ -1,17 +1,28 @@
+/**
+ * Table of Contents
+ * - Imports
+ * - Constants
+ * - UI (Component)
+ */
+
+// Imports
 import { useEffect, useState } from "react";
 import "./styles.css";
+import { FiSave, FiTrash2 } from "react-icons/fi";
 
-export default function BillsForm({ mode = "add", bill = null, onAdd, onEdit, onDelete, onClose }) {
-    const initialState = {
-        company: "",
-        title: "",
-        description: "",
-        date: "",
-        warranty: "",
-        cost: "",
-    };
+// Constants
+const INITIAL_FORM_STATE = {
+    company: "",
+    title: "",
+    description: "",
+    date: "",
+    warranty: "",
+    cost: "",
+};
 
-    const [formData, setFormData] = useState(initialState);
+// UI (Component)
+export default function BillsForm({ mode = "add", bill = null, onAdd, onEdit, onDelete }) {
+    const [formData, setFormData] = useState(INITIAL_FORM_STATE);
 
     useEffect(() => {
         if (mode === "edit" && bill) {
@@ -24,9 +35,9 @@ export default function BillsForm({ mode = "add", bill = null, onAdd, onEdit, on
                 cost: bill.cost ?? "",
             });
         } else if (mode === "add") {
-            setFormData(initialState);
+            setFormData(INITIAL_FORM_STATE);
         }
-    }, []);
+    }, [mode, bill]);
 
     function handleChange(event) {
         setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -34,121 +45,71 @@ export default function BillsForm({ mode = "add", bill = null, onAdd, onEdit, on
 
     async function handleSubmit(event) {
         event.preventDefault();
-        if (mode === "add") {
-            await onAdd?.(formData);
-        } else if (mode === "edit" && bill?.id) {
-            await onEdit?.(bill.id, formData);
-        }
+        if (mode === "add") await onAdd?.(formData);
+        else if (mode === "edit" && bill?.id) await onEdit?.(bill.id, formData);
     }
 
-    async function handleConfirmDelete(e) {
-        e.preventDefault();
-        if (bill?.id) {
-            await onDelete?.(bill.id);
-        }
+    async function handleConfirmDelete(event) {
+        event.preventDefault();
+        if (bill?.id) await onDelete?.(bill.id);
     }
 
     if (mode === "delete" && bill) {
         return (
-            <>
-                <div className="page-header">
-                    <h1>Delete bill</h1>
-                </div>
-                <h2>Are you sure you want to delete “{bill.title}”?</h2>
-
+            <div className="formCard">
+                <h3 className="formCard__title">Delete bill</h3>
+                <p className="formCard__hint">Are you sure you want to delete “{bill.title}”?</p>
                 <form onSubmit={handleConfirmDelete}>
-                    <div className="actions">
-                        <button type="button" className="btn" onClick={onClose}>Cancel</button>
-                        <button type="submit" className="btn danger">Yes — Delete</button>
+                    <div className="formCard__actions">
+                        <button type="submit" className="formCard__button formCard__button--danger" aria-label="Confirm delete">
+                            <FiTrash2 />
+                            Delete
+                        </button>
                     </div>
                 </form>
-            </>
+            </div>
         );
     }
 
     return (
-        <div className="forms-card">
-            <h3 className="forms-card-title">
-                {mode === "edit" ? "Edit bill" : "Add new bill"}
-            </h3>
+        <div className="formCard">
+            <h3 className="formCard__title">{mode === "edit" ? "Edit bill" : "Add new bill"}</h3>
 
-            <form onSubmit={handleSubmit} className="forms">
-                <div className="field">
-                    <label htmlFor="id_title">Title:</label>
-                    <input
-                        value={formData.title}
-                        type="text"
-                        name="title"
-                        id="id_title"
-                        required
-                        onChange={handleChange}
-                    />
+            <form onSubmit={handleSubmit} className="formCard__body">
+                <div className="formCard__field">
+                    <label htmlFor="bill_title" className="formCard__label">Title</label>
+                    <input id="bill_title" name="title" type="text" required value={formData.title} onChange={handleChange} className="formCard__input" />
                 </div>
 
-                <div className="field">
-                    <label htmlFor="id_company">Company:</label>
-                    <input
-                        value={formData.company}
-                        type="text"
-                        name="company"
-                        id="id_company"
-                        required
-                        onChange={handleChange}
-                    />
+                <div className="formCard__field">
+                    <label htmlFor="bill_company" className="formCard__label">Company</label>
+                    <input id="bill_company" name="company" type="text" required value={formData.company} onChange={handleChange} className="formCard__input" />
                 </div>
 
-                <div className="field">
-                    <label htmlFor="id_description">Description:</label>
-                    <input
-                        value={formData.description}
-                        type="text"
-                        name="description"
-                        id="id_description"
-                        required
-                        onChange={handleChange}
-                    />
+                <div className="formCard__field">
+                    <label htmlFor="bill_description" className="formCard__label">Description</label>
+                    <input id="bill_description" name="description" type="text" required value={formData.description} onChange={handleChange} className="formCard__input" />
                 </div>
 
-                <div className="field">
-                    <label htmlFor="id_date">Date:</label>
-                    <input
-                        value={formData.date}
-                        type="date"
-                        name="date"
-                        id="id_date"
-                        required
-                        onChange={handleChange}
-                    />
+                <div className="formCard__field">
+                    <label htmlFor="bill_date" className="formCard__label">Date</label>
+                    <input id="bill_date" name="date" type="date" required value={formData.date} onChange={handleChange} className="formCard__input" />
                 </div>
 
-                <div className="field">
-                    <label htmlFor="id_warranty">Warranty:</label>
-                    <input
-                        value={formData.warranty}
-                        type="text"
-                        name="warranty"
-                        id="id_warranty"
-                        required
-                        onChange={handleChange}
-                    />
+                <div className="formCard__field">
+                    <label htmlFor="bill_warranty" className="formCard__label">Warranty</label>
+                    <input id="bill_warranty" name="warranty" type="text" required value={formData.warranty} onChange={handleChange} className="formCard__input" />
                 </div>
 
-                <div className="field">
-                    <label htmlFor="id_cost">Cost:</label>
-                    <input
-                        value={formData.cost}
-                        type="text"
-                        name="cost"
-                        id="id_cost"
-                        required
-                        onChange={handleChange}
-                    />
+                <div className="formCard__field">
+                    <label htmlFor="bill_cost" className="formCard__label">Cost</label>
+                    <input id="bill_cost" name="cost" type="text" required value={formData.cost} onChange={handleChange} className="formCard__input" />
                 </div>
 
-                <div className="actions">
-                    <button type="button" className="btn" onClick={onClose}>Cancel</button>
-                    <button type="submit" className="btn submit">
-                        {mode === "edit" ? "Save Changes" : "Add Bill"}
+                <div className="formCard__actions">
+                    <button type="submit" className="formCard__button formCard__button--primary" aria-label="Save bill">
+                        <FiSave />
+                        {mode === "edit" ? "Save changes" : "Add bill"}
                     </button>
                 </div>
             </form>

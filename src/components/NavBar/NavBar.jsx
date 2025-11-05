@@ -1,38 +1,92 @@
-import "./styles.css"
+/**
+ * Table of Contents
+ * - Imports
+ * - UI (Component)
+ */
+
+// Imports
+import "./styles.css";
 import fawateri from "../../assets/images/FAWATERI.svg";
 import { Link } from "react-router";
 import { HashLink } from "react-router-hash-link";
+import { FiLogIn, FiUserPlus, FiLogOut } from "react-icons/fi";
 
-export default function NavBar() {
+// UI (Component)
+export default function NavBar({ user, onOpenSignup, onOpenLogin, onLogout }) {
     return (
-        <header>
-            <nav className="navbar">
-                <div className="container">
-                    <div className="logo">
-                        <img src={fawateri} alt="Logo" />
-                    </div>
-                    <ul className="nav-links">
-                        <li>
-                            <HashLink smooth to="/#home">Home</HashLink>
-                        </li>
-                        <li>
-                            <HashLink smooth to="/#about">About</HashLink>
-                        </li>
-                        <li>
-                            <HashLink smooth to="/#contact">Contact</HashLink>
-                        </li>
-                        <Link to={"/bills"}>
-                            <li>Bills</li>
-                        </Link>
-                    </ul>
-                    <div className="auth-buttons">
-                        <button className="btn register">Signup</button>
-                        <Link to={"/login"}>
-                            <button className="btn login">Login</button>
-                        </Link>
-                    </div>
+        <header className="navigation" role="banner">
+            <nav className="navigation__inner" aria-label="Primary">
+                <div className="navigation__brand">
+                    <img className="navigation__logo" src={fawateri} alt="Fawateri logo" />
                 </div>
+
+                <ul className="navigation__links" role="menubar">
+                    {user ? (
+                        <>
+                            <li role="none">
+                                <Link className="navigation__link" to="/bills" role="menuitem">Bills</Link>
+                            </li>
+                            <li role="none">
+                                <HashLink className="navigation__link" smooth to="/#home" role="menuitem">Home</HashLink>
+                            </li>
+                            <li role="none">
+                                <HashLink className="navigation__link" smooth to="/#about" role="menuitem">About</HashLink>
+                            </li>
+                            <li role="none">
+                                <HashLink className="navigation__link" smooth to="/#contact" role="menuitem">Contact</HashLink>
+                            </li>
+                        </>
+                    ) : (
+                        <>
+                            <li role="none">
+                                <HashLink className="navigation__link" smooth to="/#home" role="menuitem">Home</HashLink>
+                            </li>
+                            <li role="none">
+                                <HashLink className="navigation__link" smooth to="/#about" role="menuitem">About</HashLink>
+                            </li>
+                            <li role="none">
+                                <HashLink className="navigation__link" smooth to="/#contact" role="menuitem">Contact</HashLink>
+                            </li>
+                        </>
+                    )}
+                </ul>
+
+                {user ? (
+                    <div className="navigation__auth">
+                        <span className="navigation__greeting">Hi, {user.username}</span>
+                        <button
+                            type="button"
+                            className="navigation__button"
+                            onClick={onLogout}
+                            aria-label="Logout"
+                            title="Logout"
+                        >
+                            <FiLogOut /> Logout
+                        </button>
+                    </div>
+                ) : (
+                    <div className="navigation__auth">
+                        <button
+                            type="button"
+                            className="navigation__button"
+                            onClick={onOpenSignup}
+                            aria-label="Signup"
+                            title="Signup"
+                        >
+                            <FiUserPlus /> Sign up
+                        </button>
+                        <button
+                            type="button"
+                            className="navigation__button navigation__button--primary"
+                            onClick={onOpenLogin}
+                            aria-label="Login"
+                            title="Login"
+                        >
+                            <FiLogIn /> Sign in
+                        </button>
+                    </div>
+                )}
             </nav>
         </header>
-    )
+    );
 }

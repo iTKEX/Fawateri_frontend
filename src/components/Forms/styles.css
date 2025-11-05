@@ -1,59 +1,228 @@
-/* BillsForm.min.css */
-.forms-card {
-    max-width: 520px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
+/* ==========================================================================
+   Table of Contents
+   1) Form Card (Generic)
+   2) Categories & Reminders Form
+   3) Responsive
+   ========================================================================== */
+
+/* 1) Form Card (Generic)
+   -------------------------------------------------------------------------- */
+.formCard {
+    width: 100%;
+    max-width: 540px;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 22px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    margin: 0 auto;
 }
 
-.forms-card-title {
-    margin: 0 0 12px;
-    font-size: 1rem;
-    font-weight: 600;
+.formCard__title {
+    margin: 0 0 14px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0B1B3A;
 }
 
-.forms {
+.formCard__body {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
 }
 
-.forms>.field label {
-    display: block;
-    margin-bottom: 4px;
-    font-size: 14px;
-    color: #333;
+.formCard__field {
+    display: flex;
+    flex-direction: column;
 }
 
-.field>input {
+.formCard__label {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #2c2c2c;
+}
+
+.formCard__input,
+.formCard__textarea {
     width: 100%;
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    padding: 10px 12px;
+    border: 1px solid #cfcfcf;
+    border-radius: 10px;
     font: inherit;
+    background: #fafafa;
     outline: none;
+    transition: border-color .2s, box-shadow .2s, background .2s;
 }
 
-.field>input:focus {
-    border-color: #4c8bf5;
-    box-shadow: 0 0 0 2px rgba(76, 139, 245, 0.15);
+.formCard__textarea {
+    min-height: 80px;
+    resize: vertical;
 }
 
-.forms .actions {
-    text-align: right;
+.formCard__input:focus,
+.formCard__textarea:focus {
+    border-color: #1055C9;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(16, 85, 201, 0.12);
 }
 
-.forms .btn.submit {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 6px;
-    background: #4c8bf5;
-    color: #fff;
-    font-weight: 600;
+.formCard__hint {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.formCard__error {
+    color: #c84d4d;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+.formCard__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+/* Buttons */
+.formCard__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 42px;
+    padding: 0 14px;
+    border-radius: 12px;
+    border: 1px solid #dfe2ea;
+    background: #ffffff;
+    color: #0B1B3A;
+    font-weight: 700;
     cursor: pointer;
+    transition: background .15s, box-shadow .15s, transform .1s, border-color .15s;
 }
 
-.forms .btn.submit:hover {
-    background: #3b74d1;
+.formCard__button:hover {
+    background: #f5f7fb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+    transform: translateY(-1px);
 }
 
+.formCard__button--primary {
+    background: #1055C9;
+    color: #ffffff;
+    border-color: #1055C9;
+}
+
+.formCard__button--primary:hover {
+    background: #2749A4;
+}
+
+.formCard__button--danger {
+    border-color: #e6b4b4;
+    background: #ffecec;
+    color: #c84d4d;
+}
+
+.formCard__button--danger:hover {
+    background: #ffe0e0;
+}
+
+/* 2) Categories & Reminders Form
+   -------------------------------------------------------------------------- */
+.categoriesRemindersForm {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.categoriesRemindersForm__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.categoriesRemindersForm__grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.categoriesRemindersForm__panel {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 16px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.categoriesRemindersForm__title {
+    margin: 0 0 8px;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #0B1B3A;
+}
+
+.categoriesRemindersForm__subtitle {
+    margin: 0 0 12px;
+    color: #666;
+    font-size: 0.92rem;
+}
+
+.categoriesRemindersForm__categoryList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.categoriesRemindersForm__categoryItem {
+    padding: 8px 10px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    transition: background .2s, border-color .2s;
+}
+
+.categoriesRemindersForm__categoryItem:hover {
+    background: #f7f9ff;
+    border-color: #dfe6ff;
+}
+
+.categoriesRemindersForm__categoryItem--checked {
+    border-color: #cfd3ff;
+    background: #f1f4ff;
+}
+
+.categoriesRemindersForm__categoryRow {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.categoriesRemindersForm__categoryDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.categoriesRemindersForm__actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+/* 3) Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .categoriesRemindersForm__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .formCard {
+        padding: 18px;
+    }
+}

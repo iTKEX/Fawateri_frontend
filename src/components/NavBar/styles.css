@@ -1,74 +1,157 @@
-nav.navbar {
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding-block: 0.5rem;
+/* ==========================================================================
+   Table of Contents
+   1) Layout / Structure
+   2) Brand
+   3) Links
+   4) Auth
+   5) Buttons (Local)
+   6) Responsive
+   ========================================================================== */
+
+/* 1) Layout / Structure */
+.navigation {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
 }
 
-.navbar .container {
+.navigation__inner {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 10px 16px;
     display: flex;
-    gap: 1rem;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
+    gap: 12px;
     flex-wrap: wrap;
-    padding-block: 0;
+    overflow-x: hidden;
 }
 
-.logo {
+/* 2) Brand */
+.navigation__brand {
     display: flex;
     align-items: center;
 }
 
-.logo img {
+.navigation__logo {
+    max-height: 44px;
     width: auto;
-    max-height: 40px;
     display: block;
-    transition: transform 0.3s;
+    transition: transform .25s;
 }
 
-.logo img:hover {
-    transform: scale(1.1);
+.navigation__logo:hover {
+    transform: scale(1.06);
 }
 
-.nav-links {
-    list-style: none;
+/* 3) Links */
+.navigation__links {
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    gap: 24px;
+    padding: 0;
+    margin: 0;
 }
 
-.nav-links a {
+.navigation__link {
+    color: #0B1B3A;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 4px 14px;
+    /* (طلبك) مربع أنحف عموديًا */
+    border-radius: 10px;
+    transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
     text-decoration: none;
-    color: #333;
-    font-size: 1rem;
-    transition: color 0.3s;
+    display: inline-block;
 }
 
-.nav-links a:hover {
+.navigation__link:hover {
     color: #134B70;
+    background-color: rgba(19, 75, 112, 0.08);
+    box-shadow: 0 2px 8px rgba(19, 75, 112, 0.08);
+    text-decoration: none;
 }
 
-.auth-buttons .btn {
-    padding: 0.4rem 0.8rem;
-    border: none;
-    border-radius: 50px;
+/* 4) Auth */
+.navigation__auth {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navigation__greeting {
+    margin-inline-end: 8px;
+    color: #0B1B3A;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* 5) Buttons (Local) */
+.navigation__button {
+    height: 40px;
+    min-width: 40px;
+    padding: 0 16px;
+    border-radius: 12px;
+    border: 1px solid #dfe2ea;
+    background: #ffffff;
+    color: #0B1B3A;
+    font-weight: 700;
     cursor: pointer;
-    font-size: 1rem;
-    margin-left: 0.5rem;
-    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background .15s, box-shadow .15s, transform .1s, border-color .15s;
 }
 
-.auth-buttons .register {
-    background-color: #f0f0f0;
+.navigation__button:hover {
+    background: #f5f7fb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+    transform: translateY(-1px);
 }
 
-.auth-buttons .register:hover {
-    background-color: #ddd;
+.navigation__button:active {
+    transform: translateY(0);
+    box-shadow: none;
 }
 
-.auth-buttons .login {
-    background-color: #2749A4;
-    color: white;
+.navigation__button--primary {
+    background: #1055C9;
+    color: #ffffff;
+    border-color: #1055C9;
 }
 
-.auth-buttons .login:hover {
-    background-color: #0B1B3A;
+.navigation__button--primary:hover {
+    background: #2749A4;
+}
+
+/* 6) Responsive */
+@media (max-width: 820px) {
+    .navigation__inner {
+        gap: 10px 14px;
+    }
+
+    .navigation__links {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .navigation__auth {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .navigation__links {
+        gap: 14px;
+    }
+
+    .navigation__greeting {
+        display: none;
+    }
 }

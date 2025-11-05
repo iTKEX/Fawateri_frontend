@@ -1,0 +1,222 @@
+/* ==========================================================================
+   Block: .bills  (BEM)
+   1) Layout & Basics
+   2) Toolbar (right-aligned)
+   3) Active Filters line
+   4) Filters popup content
+   5) Cards wrapper
+   6) Responsive
+   ========================================================================== */
+
+/* 1) Layout & Basics */
+.bills {
+    width: 100%;
+    padding: 16px 12px;
+    color: #0B1B3A;
+}
+
+.bills__muted {
+    color: #666666;
+}
+
+/* 2) Toolbar */
+.bills__toolbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin: 16px 0 10px;
+    flex-wrap: wrap;
+}
+
+.bills__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 12px;
+    border: 1px solid #dfe2ea;
+    background: #ffffff;
+    color: #0B1B3A;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .15s, box-shadow .15s, transform .1s, border-color .15s;
+}
+
+.bills__button:hover {
+    background: #f5f7fb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+    transform: translateY(-1px);
+}
+
+.bills__button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.bills__button--primary {
+    background: #1055C9;
+    color: #ffffff;
+    border-color: #1055C9;
+}
+
+.bills__button--primary:hover {
+    background: #2749A4;
+}
+
+.bills__button-icon {
+    font-size: 1rem;
+}
+
+.bills__button-label {
+    line-height: 1;
+}
+
+/* 3) Active Filters line */
+.bills__active-filters {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 14px;
+    color: #333333;
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 6px 10px;
+    margin: 2px 0 12px;
+}
+
+.bills__active-title {
+    font-weight: 700;
+    color: #0B1B3A;
+}
+
+.bills__active-chip {
+    background: #f5f7fb;
+    border: 1px solid #e2e7f2;
+    color: #0B1B3A;
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+
+.bills__chip-clear {
+    height: 30px;
+    width: 30px;
+    border-radius: 8px;
+    border: 1px solid #e6e6e6;
+    background: #fff;
+    color: #c84d4d;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.bills__chip-clear:hover {
+    background: #ffecec;
+}
+
+/* 4) Filters popup content (scoped) */
+.bills__filters-card {
+    width: 100%;
+    max-width: 540px;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 24px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    margin: 0 auto;
+}
+
+.bills__filters-title {
+    margin: 0 0 16px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0B1B3A;
+    text-align: left;
+}
+
+.bills__filters-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.bills__field {
+    display: flex;
+    flex-direction: column;
+}
+
+.bills__label {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #333333;
+}
+
+.bills__input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    background: #fafafa;
+    font: inherit;
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.bills__input:focus {
+    border-color: #1055C9;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(16, 85, 201, 0.1);
+}
+
+.bills__filters-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 220px;
+    overflow: auto;
+    display: grid;
+    gap: 6px;
+}
+
+.bills__filters-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.bills__filters-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    display: inline-block;
+}
+
+.bills__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* 5) Cards wrapper */
+.bills__cards {
+    margin-top: 10px;
+}
+
+/* 6) Responsive */
+@media (max-width: 600px) {
+    .bills__toolbar {
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .bills__button {
+        padding: 0 12px;
+    }
+}

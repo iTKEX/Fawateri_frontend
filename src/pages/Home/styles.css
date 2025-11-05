@@ -1,131 +1,290 @@
-section {
-    padding: 2rem;
+/* ==========================================================================
+   Block: .home
+   1) Base
+   2) Hero
+   3) Section container & spacing
+   4) Cards
+   5) Reviews
+   6) Contact
+   7) Responsive
+   ========================================================================== */
+
+/* 1) Base */
+.home {
+    width: 100%;
+    color: #0B1B3A;
+    overflow-x: hidden;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
+.home__paragraph {
+    line-height: 1.75;
+    color: #333333;
+}
+
+.home__paragraph--center {
+    text-align: center;
+}
+
+/* 2) Hero */
+.home__hero {
+    background: #0B1B3A;
+    color: #ffffff;
+    padding: 90px 16px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.home__hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08));
+    pointer-events: none;
+}
+
+.home__hero-container {
+    width: 100%;
+    max-width: 1180px;
+    padding: 0 12px;
     margin: 0 auto;
-    padding: .6rem;
+    position: relative;
+    z-index: 1;
 }
 
-.hero {
-    text-align: center;
-    padding: 5rem 0;
-    background-color: #0B1B3A;
-    color: white;
+.home__hero-title {
+    font-size: 3.2rem;
+    margin: 0 0 18px 0;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 0.2px;
+    color: #ffffff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.home__hero-highlight {
+    color: #2a66e5;
 }
 
-.hero .highlight {
-    color: #1055C9;
-}
-
-.hero .subtitle {
-    margin-bottom: 2rem;
-    font-size: 1.25rem;
-}
-
-.btn.primary {
-    background-color: #1055C9;
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
+.home__hero-subtitle {
+    margin: 0 auto 26px;
     font-size: 1.1rem;
-    transition: background-color 0.3s;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    color: #e9eefc;
 }
 
-.btn.primary:hover {
-    background-color: #2749A4;
-}
-
-.flex {
-    display: flex;
-    height: auto;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.feature-card,
-.savings-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+.home__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    height: 54px;
+    padding: 0 24px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1rem;
     cursor: pointer;
-    flex-grow: 1;
+    border: 1px solid #dfe2ea;
+    background: #ffffff;
+    color: #0B1B3A;
+    box-shadow: 0 6px 16px rgba(16, 85, 201, .18);
+    transition: background .15s, box-shadow .15s, transform .1s, border-color .15s;
 }
 
-.feature-card:hover,
-.savings-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.home__button:hover {
+    background: #f5f7fb;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .12);
+    transform: translateY(-1px);
 }
 
-.icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+.home__button:active {
+    transform: translateY(0);
+    box-shadow: none;
 }
 
-.reviews {
-    background-color: white;
-    padding: 4rem 0;
+.home__button--primary {
+    background: #1055C9;
+    color: #ffffff;
+    border-color: #1055C9;
 }
 
-.review {
-    max-width: 600px;
-    margin: 0 auto 3rem;
+.home__button--primary:hover {
+    background: #2749A4;
+}
+
+.home__button-icon {
+    font-size: 1.1rem;
+    vertical-align: -1px;
+}
+
+/* 3) Section container & spacing */
+.home__section {
+    padding: 48px 16px;
+    background: #f5f6f8;
+}
+
+.home__features,
+.home__savings,
+.home__reviews {
+    background: #f5f6f8;
+}
+
+.home__section-container {
+    width: 100%;
+    max-width: 1180px;
+    padding: 0 12px;
+    margin: 0 auto;
+}
+
+.home__section-container--center {
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    border-radius: 10px;
 }
 
-.review img {
-    width: 100px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-    transition: transform 0.3s;
+.home__section-header {
+    margin: 0 0 18px;
+    text-align: left;
 }
 
-.review img:hover {
-    transform: scale(1.1);
+.home__section-header--center {
+    text-align: center;
 }
 
-.contact {
+.home__section-title {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #0B1B3A;
+}
+
+/* 4) Cards */
+.home__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.home__card {
+    background: #ffffff;
+    padding: 26px;
+    border-radius: 16px;
+    border: 1px solid #eceff5;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .06);
+    text-align: center;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+    min-height: 230px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: .5rem;
-    background-color: #0B1B3A;
-    color: white;
-    padding: 4rem 0;
+}
+
+.home__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .12);
+    border-color: #d9deee;
+}
+
+.home__card-icon {
+    font-size: 3rem;
+    margin: 0 0 14px 0;
+    color: #0B1B3A;
+}
+
+.home__card-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0B1B3A;
+}
+
+/* 5) Reviews */
+.home__reviews {
+    padding: 64px 16px;
+}
+
+.home__review-card {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+    padding: 26px;
+    border-radius: 16px;
+    border: 1px solid #eceff5;
+    background: #ffffff;
+}
+
+.home__review-avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 0 12px 0;
+    transition: transform .2s;
+    background: #ffffff;
+}
+
+.home__review-avatar:hover {
+    transform: scale(1.06);
+}
+
+.home__review-author {
+    margin: 0 0 6px 0;
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: #0B1B3A;
+}
+
+.home__review-text {
+    margin: 0;
+    color: #333333;
+}
+
+/* 6) Contact */
+.home__contact {
+    background: #0B1B3A;
+    color: #ffffff;
+    padding: 64px 16px;
     text-align: center;
 }
 
-.btn.primary {
-    max-width: 500px;
+.home__contact-title {
+    margin: 0 0 6px 0;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
 }
 
-.contact .btn.primary:hover {
-    background-color: #2749A4;
+.home__contact-text {
+    margin: 0 0 16px 0;
+    color: #e8ecf7;
+}
+
+.home__contact-link {
+    text-decoration: none;
+}
+
+/* 7) Responsive */
+@media (max-width: 992px) {
+    .home__cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .home__hero-title {
+        font-size: 2.6rem;
+    }
 }
 
 @media (max-width: 592px) {
-    .navbar .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .home__cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .home__hero-title {
+        font-size: 2.1rem;
+    }
+
+    .home__section {
+        padding: 40px 14px;
     }
 }
