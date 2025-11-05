@@ -22,14 +22,12 @@
 
 /* 2) Content */
 .popup-content {
-    background: #fff;
     padding: 26px 28px 22px;
     border-radius: 16px;
     width: 100%;
     max-width: 760px;
     max-height: 90vh;
     overflow-y: auto;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .16);
     position: relative;
     animation: popupIn .25s ease-out;
 }
@@ -37,8 +35,8 @@
 /* 3) Close Button */
 .popup-close-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 40px;
+    right: 125px;
     background: #f5f5f5;
     color: #0B1B3A;
     border: 1px solid #e6e6e6;
