@@ -4,7 +4,16 @@ TABLE OF CONTENT
 - CONSTANTS
 - FUNCTIONS:
     - getAllBills
-
+    - getBillDetails
+    - createNewBill
+    - updateBill
+    - deleteBill
+    - upsertBillImage
+    - deleteBillImage
+    - getAllCategories
+    - setBillCategories
+    - createReminder
+    - deleteReminder
 */
 
 // IMPORTS
@@ -41,4 +50,20 @@ export async function upsertBillImage(billId, formData) {
 
 export async function deleteBillImage(billId) {
     return sendRequest(`${baseURL}${billId}/image/`, "DELETE");
+}
+
+export async function getAllCategories() {
+    return sendRequest('/categories/');
+}
+
+export async function setBillCategories(billId, categoryIds) {
+    return sendRequest(`/bills/${billId}/categories/`, "POST", { category_ids: categoryIds });
+}
+
+export async function createReminder(billId, payload) {
+    return sendRequest(`/bills/${billId}/reminders/`, "POST", payload);
+}
+
+export async function deleteReminder(billId, reminderId) {
+    return sendRequest(`/bills/${billId}/reminders/${reminderId}/`, "DELETE");
 }
